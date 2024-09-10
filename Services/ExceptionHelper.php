@@ -26,7 +26,7 @@ class ExceptionHelper
     /**
      * Format the JSON message to post to Mattermost
      *
-     * @throws \Exception
+     * @throws \Throwable
      */
     public function convertExceptionToMessage(\Throwable $throwable, $exceptionChannel = null, $source = null, bool $trace = false): Message
     {
@@ -71,15 +71,15 @@ class ExceptionHelper
     }
 
     /**
-     * @param \Exception  $exception
+     * @param \Throwable  $exception
      * @param null        $source
      * @param null|string $exceptionChannel
      * @param bool        $trace
      *
      * @return bool
-     * @throws \Exception
+     * @throws \Throwable
      */
-    public function sendException(\Exception $exception, $exceptionChannel = null, $source = null, bool $trace = false): bool
+    public function sendException(\Throwable $exception, $exceptionChannel = null, $source = null, bool $trace = false): bool
     {
         $message = $this->convertExceptionToMessage($exception, $exceptionChannel, $source, $trace);
 
